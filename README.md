@@ -19,7 +19,7 @@ This repository documents the the workflow of the RNA-Sequencing course: **Ribos
 A brief overview of the workflow will be given here. Bash and R scripts used to perform the described steps are available in the corresponding folders in this repository (`bashScripts` and `Rscripts`). Bash scripts were run on the IBU cluster (hence the SBATCH headers), while R-scripts were run on a local machine.
 
 ### Prefetching Data
-Stomata and Neuropil polysome reads of Rattus norvegicus were obtained from https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA550323 using `prefetch`. The obtained .sra files were converted to fasta.gz files using `fastq_dump`. The obtained files are stored in a dedicated directory called `fastq`. These steps are carried out in the `prefetch.sh` script.
+Stomata and Neuropil polysome reads of Rattus norvegicus were obtained from https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA550323 using `prefetch`. The obtained .sra files were converted to fasta.gz files using `fastq_dump`. The obtained files are stored in a dedicated folder called `fastq`. These steps are carried out in the `prefetch.sh` script.
 
 ### Annotation Preperation
 Fasta files containing undesired RNA were obtained from `Ensembl` (rRNA, snRNA and snoRNA), `GtRNAdb` (rRNA) and `NCBI` (rRNA) and concatenated for subsequent mapping of our reads. Likewise, a Rattus norvegicus reference genome (Rattus_norvegicus.Rnor_6.0.dna.toplevel.fa.gz)  and a corresponding .gtf file (Rattus_norvegicus.Rnor_6.0.104.gtf.gz) were obtained from `Ensembl` for subsequent whole genome mapping and structural information.
