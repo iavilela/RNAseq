@@ -6,7 +6,7 @@
 ---
 
 This repository provides scripts and documents the workflow of the RNA-Sequencing course: **Ribosome Profiling**.
-Bash scripts and R scripts are provided in respective directories. Moreover, manually downloaded and generated data needed to run the scripts is provided in the `data` folder (`.fa` are provided in zipped form). A brief methodological documentation `Methods in Brief` is provided below if interesrepted. Otherwise, a `Quick Guide` is given, which includes the order in which the scripts were run and other information. 
+Bash scripts and R scripts are provided in respective directories. A brief methodological documentation `Methods in Brief` is provided below if interesrepted. Otherwise, a `Quick Guide` is given, which includes the order in which the scripts were run and other information. 
 
 > #### Discalimer: 
 > All included bash scripts are run on the IBU cluster. They are written such that IBU cluster users should be able run them and obtain the same results in `/data/users/${USER}/RNAseq`. However, reproducibility for other IBU cluster users was not a primary focus of this project an was thus not tested. If the scripts are run on another machine, file paths need to be adapted.
