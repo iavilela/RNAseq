@@ -9,7 +9,7 @@ This repository provides scripts and documents the workflow of the RNA-Sequenci
 Bash scripts and R scripts are provided in respective directories. A brief methodological documentation `Methods in Brief` is provided below if interesrepted. Otherwise, a `Quick Guide` is given, which includes the order in which the scripts were run and other information. 
 
 > #### Discalimer: 
-> All included bash scripts are run on the IBU cluster. They are written such that IBU cluster users should be able run them and obtain the same results in `/data/users/${USER}/RNAseq`. However, reproducibility for other IBU cluster users was not a primary focus of this project an was thus not tested. If the scripts are run on another machine, file paths need to be adapted.
+> All included bash scripts are run on the IBU cluster. They are written such that IBU cluster users should be able run them and obtain the same results in `/data/users/${USER}/RNAseq`. However, automated reproducibility for other IBU cluster users was not a primary focus of this project an was thus not tested. If the scripts are run on another machine, file paths need to be adapted.
 > All included R scripts were run on a local machine. Therefore, the working directories and file paths need to be adapted individually to run them properly on other machines.
 > Data files are to large to be provided on a git repository. It is expected that the data is obtained individually in a similar manner as described here.   
 
