@@ -1,7 +1,3 @@
-library("devtools")
-library("ggplot2")
-install_github(repo = "lcalviell/Ribo-seQC")
-
 library("RiboseQC")
 
 setwd("/home/ianis/Documents/Uni/RNAseq")
