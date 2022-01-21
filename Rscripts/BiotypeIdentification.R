@@ -1,9 +1,8 @@
-
-setwd("/home/ianis/Documents/Uni/RNAseq/BiotypeIdentification")
-
 library(ggplot2)
 library(RColorBrewer)
 library(dplyr)
+
+setwd("/home/ianis/Documents/Uni/RNAseq/BiotypeIdentification")
 
 qual_col_pals = brewer.pal.info[brewer.pal.info$category == 'qual',]
 Color = unlist(mapply(brewer.pal, qual_col_pals$maxcolors, rownames(qual_col_pals)))
