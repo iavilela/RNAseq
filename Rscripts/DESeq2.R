@@ -2,9 +2,8 @@ library(DESeq2)
 library(ggplot2)
 library(gplots)
 library(RColorBrewer)
-library(pheatmap)
-library(BiocParallel)
 library(org.Rn.eg.db)
+library(BiocParallel)
 register(MulticoreParam(4))
 
 # Set working directory
@@ -52,6 +51,7 @@ dds <- DESeqDataSetFromMatrix(countData = featurecount_data,
                               colData = samples_df,
                               design = ~ condition)
 
+dds
 # Pre-filtering
 keep <- rowSums(counts(dds)) >= 10
 dds <- dds[keep, ]
@@ -67,8 +67,6 @@ dds <- DESeq(dds)
 
 ################################################################################
 # QC
-################################################################################
-
 # Log transformation for data quality assessment
 rld <- rlog(dds, blind = FALSE)
 
@@ -82,18 +80,6 @@ heatmap.2(as.matrix(sampleDists),
           ColSideColors = mycols[dds$condition],
           RowSideColors = mycols[dds$condition],
           margin = c(10, 10), main = "Sample Distance Matrix")
-dev.off()
-
-# Count matrix heatmap
-select <- order(rowMeans(counts(dds,normalized = TRUE)))
-df <- as.data.frame(colData(dds)[ , c("condition","rep")])
-
-pdf("QC_count_matrix_CDS.pdf")
-pheatmap(assay(rld)[select,],
-         cluster_rows = FALSE,
-         show_rownames=FALSE,
-         cluster_cols = FALSE,
-         annotation_col = df)
 dev.off()
 
 # PCA plot
@@ -135,10 +121,7 @@ convertIDs <- function( ids, from, to, db, ifMultiple = c("putNA", "useFirst")) 
   return( selRes[ match( ids, selRes[,1] ), 2 ] )
 }
 
-# Check columns in the database that you want to add:
-columns(org.Rn.eg.db)
-
-# Actual adding of the column
+# Adding of the column
 res$GeneID <- row.names(res)
 res$gene_symbol <- convertIDs(row.names(res), "ENSEMBL", "SYMBOL", org.Rn.eg.db)
 
@@ -177,3 +160,10 @@ ggplot(res_df,
   theme_bw()
 dev.off()
 
+# Other stats
+length(which(res_df$regulation_level=="Upregulated"))
+length(which(res_df$regulation_level=="Downregulated"))
+length(which(res_df$regulation_level=="Unchanged"))
+
+res_df[res_df$log2FoldChange==max(res_df$log2FoldChange),]
+res_df[res_df$log2FoldChange==min(res_df$log2FoldChange),]
