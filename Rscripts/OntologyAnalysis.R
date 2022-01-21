@@ -1,9 +1,5 @@
 library(topGO)
-library(grid)
-library(gridExtra)
-library(pathview)
 library(AnnotationDbi)
-library(clusterProfiler)
 library(ggplot2)
 
 sample_name = "Neuropil_Poly_vs_Somata_Poly_only_padj"
